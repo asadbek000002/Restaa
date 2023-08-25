@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import *
+from django.shortcuts import render, redirect
+
+from .forms import *
 # Create your views here.
 
 
@@ -11,11 +12,12 @@ def checkout(request):
     return render(request, 'page/buy.html', {"cart": cart, 'total_price': total_price, 'total_quantity':total_quantity})
 
 
-# def checkout(request):
-#     items = []
-#     order={'get_cart_total':0, 'get_cart_items':0}
-#
-#     context = {'items':items,
-#                'order':order,
-#                }
-#     return render(request, 'page/buy.html', context)
+def create_order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("checkout")
+    else:
+        form = OrderForm()
+    return render(request, 'page/catr_order.html', {'form': form})
