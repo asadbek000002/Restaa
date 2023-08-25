@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h2>{{ menu.name }}</h2>
+    <ul>
+        {% for meal in meal %}
+        <li><a href="{% url 'meal_detail' pk=meal.pk %}">{{ meal.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+
+
+{% endblock content %}
+

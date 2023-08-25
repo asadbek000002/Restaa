@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if meal == meal %}
+  {% for meal in meal %}
+  <h1>{{ meal.name }}</h1>
+
+  <p>{{ meal.recipe }}</p>
+<!--  <p>Real price: {{ meal.real_price }} {{ meal.currency }}</p>-->
+  <p>Price: {{ meal.price }}</p>
+  <p>Quantity: {{ meal.quantity }}</p>
+  <p>Porsiya: {{ meal.porsiya }}</p>
+  <p>Created time: {{ meal.get_created_time }}</p>
+  {% endfor %}
+{% endif %}
+{% endblock %}

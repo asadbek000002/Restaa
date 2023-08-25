@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<ul>
+  {% for menu in menu %}
+    <li><a href="{% url 'product_list' menu.slug %}">{{ menu.name }}</a></li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}
+

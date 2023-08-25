@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div clas="col-lg-6">
+        <div clas="box-element">
+            <h3>Order Summary</h3>
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+            {% for d in cart %}
+
+                        <div clas="cart-row">
+                            <div style="flex:2"><p>* Name: {{d.meal.name}}</p></div>
+                            <div style="flex:1"><p>Price: {{d.meal.price}}</p></div>
+                            <div style="flex:1"><p>Quantity: {{d.quantity}}</p></div>
+                        </div>
+                        <hr>
+            {% endfor %}
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <h5>Total Quantity: {{ total_quantity }}</h5>
+              <h4>Cart Total: {{ total_price }}</h4>
+        </div>
+    </div>
+</div>
+{% endblock content %}
