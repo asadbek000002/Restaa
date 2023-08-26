@@ -1,16 +1,103 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-{% if meal == meal %}
-  {% for meal in meal %}
-  <h1>{{ meal.name }}</h1>
+<body>
+      <h1 class="offitsant">Offitsant pages</h1>
 
-  <p>{{ meal.recipe }}</p>
-<!--  <p>Real price: {{ meal.real_price }} {{ meal.currency }}</p>-->
-  <p>Price: {{ meal.price }}</p>
-  <p>Quantity: {{ meal.quantity }}</p>
-  <p>Porsiya: {{ meal.porsiya }}</p>
-  <p>Created time: {{ meal.get_created_time }}</p>
-  {% endfor %}
-{% endif %}
-{% endblock %}
+           <!--Offitsant Pages-->
+
+           <div class="body">
+            <div class="container">
+             <div class="menu">
+                 <div class="logo">
+                     <!-- Uzbek <span>D</span> -->
+                     <img src="./photo_2023-08-25_10-35-29.jpg" alt="">
+                 </div>
+                 <ul class="previuse-ul">
+
+
+                     <li><i class="fa-solid fa-circle i"></i>Lavash</li>
+                     <li><i class="fa-solid fa-circle i"></i> Burger</li>
+                     <li><i class="fa-solid fa-circle i"></i> Hot-dog</li>
+                     <li><i class="fa-solid fa-circle i"></i> Kartoshka-Free</li>
+                     <li><i class="fa-solid fa-circle i"></i> Ichimlik</li>
+                     <li><i class="fa-solid fa-circle i"></i> Sandvich</li>
+
+
+                 </ul>
+                  <ul class="next-ul">
+                     <li><i class="fa-brands fa-tiktok"></i> Tiktok</li>
+                     <li><i class="fa-brands fa-facebook"></i> Facebook</li>
+                     <li><i class="fa-brands fa-instagram"></i> Instagram</li>
+                 </ul>
+             </div>
+             <div class="center">
+                 <div class="search">
+                     <div class="form">
+                         <i class="fa-solid fa-magnifying-glass"></i>
+                         <input type="text" placeholder="Search...">
+                         <button>Search</button>
+                     </div>
+                     <div class="users">
+                         <i class="fa-solid fa-user "></i>
+                         <div>Login</div>
+                     </div>
+                 </div>
+
+                 <h2 class="center-title">Lavash</h2>
+                 <div class="scrol">
+
+
+
+                {% for m in meal %}
+                     <div class="list1 list Lavash" >
+                         <div class="item" data-key="{{ m.id }}">
+                             <div class="img">
+                                 <img src="{{ m.image.url }}" alt="">
+                             </div>
+                             <div class="content">
+                                 <div class="title">{{ m.name}}</div>
+                                 <div class="des">
+                                     {{ m.recipe }}
+                                 </div>
+                                 <div class="price">{{ m.price }} so'm</div>
+                                 <input type="number" class="count" min="1" value="1">
+                                 <button class="add">Add to cart</button>
+                                 <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can"></i></button>
+                             </div>
+                         </div>
+                     </div>
+                     {% endfor %}
+
+
+
+
+                 </div>
+
+             </div>
+             <div class="cart">
+                 <div class="name">CART</div>
+                 <div class="listCart">
+
+                 </div>
+                 <div class="listCard-price">
+
+                     <div class="total-ptice">
+                         <div class="valyuta">So'm :</div>
+                          <div class="sum">0</div>
+
+                     </div>
+                     <div class="total-btn">
+                         Sotib olish
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+</body>
+
+
+
+{% endblock content %}
+

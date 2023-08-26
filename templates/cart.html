@@ -1,0 +1,15 @@
+{% for cart_item in cart_items %}
+<div class="cart-item">
+    <div class="cart-item-image">
+        <img src="{{ cart_item.meal.image.url }}" alt="">
+    </div>
+    <div class="cart-item-details">
+        <div class="cart-item-title">{{ cart_item.meal.name }}</div>
+        <div class="cart-item-price">{{ cart_item.meal.price }} so'm</div>
+        <div class="cart-item-quantity">Quantity: {{ cart_item.quantity }}</div>
+        <div class="cart-item-remove">
+            <a href="{% url 'remove_from_cart' cart_item.meal.id %}">Remove</a>
+        </div>
+    </div>
+</div>
+{% endfor %}

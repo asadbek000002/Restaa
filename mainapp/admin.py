@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 admin.site.register(Menu)
+admin.site.register(CartItem)
+admin.site.register(Cart)
 import requests
 from _decimal import Decimal
 
